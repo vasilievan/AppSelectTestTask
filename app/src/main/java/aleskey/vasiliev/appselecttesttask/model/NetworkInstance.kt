@@ -32,7 +32,7 @@ object NetworkInstance {
 
     /** Используемые URL, а также константы и ключ API*/
 
-    private const val API_KEY = "MUtWCX8QnpXbCMRtnGGkd24ebgrrk5zL"
+    private const val API_KEY = "somesecretkey :)"
     private const val URL_STRING =
         "https://api.nytimes.com/svc/movies/v2/reviews/all.json?api-key=$API_KEY"
     private const val DISPLAY_TITLE = "display_title"
