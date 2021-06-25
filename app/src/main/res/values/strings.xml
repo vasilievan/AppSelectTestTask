@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppSelect test task</string>
+    <string name="app_icon">App icon</string>
+    <string name="videos">Videos</string>
+    <string name="video_preview">Video preview</string>
+    <string name="network_issue">No Internet connection.</string>
+</resources>
