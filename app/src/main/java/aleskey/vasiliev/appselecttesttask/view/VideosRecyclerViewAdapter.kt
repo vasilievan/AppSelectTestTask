@@ -5,6 +5,7 @@ import aleskey.vasiliev.appselecttesttask.R.layout.photo_pattern
 import aleskey.vasiliev.appselecttesttask.model.NetworkInstance
 import aleskey.vasiliev.appselecttesttask.model.SharedData.IMAGE_MARGIN
 import aleskey.vasiliev.appselecttesttask.model.SharedData.PHONE_WIDTH
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,5 +47,11 @@ class VideosRecyclerViewAdapter(private val myData: ArrayList<NetworkInstance.Vi
         holder.textView.text = myData[position].title
         holder.imageView.setImageBitmap(myData[position].photo)
         holder.textViewDescription.text = myData[position].description
+    }
+
+    fun update(index: Int, networkInstance: NetworkInstance.Video, bm: Bitmap) {
+        myData[index] = NetworkInstance.VideoUpdated(networkInstance.title,
+            networkInstance.description, bm)
+        notifyDataSetChanged()
     }
 }

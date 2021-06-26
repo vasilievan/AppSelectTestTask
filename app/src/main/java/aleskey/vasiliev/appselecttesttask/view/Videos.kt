@@ -9,8 +9,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import java.lang.System.exit
 import kotlin.concurrent.thread
+import kotlin.system.exitProcess
 
 /**
  * Данный класс - активность, на которой выводятся фильмы с описанием и заголовком.
@@ -38,13 +38,8 @@ class Videos : AppCompatActivity() {
         thread {
             for (index in videoList.indices) {
                 val bm = loadPhotoByURL(videoList[index].photo_url_string)
-                myData[index] = NetworkInstance.VideoUpdated(
-                    videoList[index].title,
-                    videoList[index].description,
-                    bm
-                )
                 runOnUiThread {
-                    myAdapter.notifyDataSetChanged()
+                    myAdapter.update(index, videoList[index], bm)
                 }
             }
         }
@@ -55,6 +50,6 @@ class Videos : AppCompatActivity() {
      */
 
     override fun onBackPressed() {
-        exit(0)
+        exitProcess(0)
     }
 }
